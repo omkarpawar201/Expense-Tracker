@@ -132,6 +132,3 @@ Milestones for long-term financial aspirations.
    ```
 
 ---
-
-## 📜 License
-This project is for educational and professional demonstration purposes. Feel free to fork and adapt it.

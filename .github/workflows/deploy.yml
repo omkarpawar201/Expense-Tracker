@@ -1,0 +1,36 @@
+name: Deploy Expense Tracker
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    name: Build & Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to EC2 via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.EC2_KEY }}
+          port: 22
+          script: |
+            # Navigate to the project directory on EC2
+            # (Note: Ensure you've cloned it into ~/ExpenseTracker initially)
+            cd ~/ExpenseTracker || { echo "Directory not found"; exit 1; }
+            
+            # Pull the latest changes from the main branch
+            # (Note: Set up SSH keys on EC2 if pulling from a private repo)
+            git pull origin main
+            
+            # Rebuild and restart the containers in detached mode
+            sudo docker-compose up -d --build
+            
+            # Optional: Clean up dangling images
+            sudo docker image prune -f

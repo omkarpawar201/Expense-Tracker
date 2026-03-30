@@ -8,10 +8,10 @@ function Home() {
         }}>
             <div className="logo" style={{ fontSize: '3rem', marginBottom: '0' }}>
                 <i className="fa-solid fa-wallet"></i>
-                <h2>StellarTracker</h2>
+                <h2>Expense Tracker</h2>
             </div>
             <p style={{ color: 'var(--text-secondary)', fontSize: '1.2rem', maxWidth: '600px' }}>
-                The most stunning and performant way to track your expenses. 
+                The most stunning and performant way to track your expenses.
                 Built with a high-performance C++ backend and a modern React frontend.
             </p>
             <div style={{ display: 'flex', gap: '16px' }}>

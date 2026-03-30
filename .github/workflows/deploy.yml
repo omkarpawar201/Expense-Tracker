@@ -22,8 +22,8 @@ jobs:
           port: 22
           script: |
             # Navigate to the project directory on EC2
-            # (Note: Ensure you've cloned it into ~/ExpenseTracker initially)
-            cd ~/ExpenseTracker || { echo "Directory not found"; exit 1; }
+            # (Note: Matches the folder name 'Expense-Tracker' seen in your terminal)
+            cd ~/Expense-Tracker || { echo "Directory not found"; exit 1; }
             
             # Pull the latest changes from the main branch
             # (Note: Set up SSH keys on EC2 if pulling from a private repo)
